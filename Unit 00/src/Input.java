@@ -47,8 +47,8 @@ public class Input
 		System.out.println("double two = " + doubleTwo );
 		System.out.println("float one = " + floatOne );
 		System.out.println("float two = " + floatTwo );
-		System.out.println("float one = " + shortOne );
-		System.out.println("float two = " + shortTwo );
+		System.out.println("short one = " + shortOne );
+		System.out.println("short two = " + shortTwo );
 		//add in output for all variables
 
 

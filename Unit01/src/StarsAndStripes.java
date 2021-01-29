@@ -34,19 +34,30 @@ public class StarsAndStripes
    
    public void printASmallBox()
    {
-	   out.println("--------------------");
-	   out.println("********************");
-	   out.println("--------------------");
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyStars();
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyStars();
+	   printTwentyDashes();
    }
  
    public void printABigBox()
    { 	
-	   out.println("--------------------");
-	   out.println("********************");
-	   out.println("--------------------");
-	   out.println("********************");
-	   out.println("--------------------");
-	   out.println("********************");
-	   out.println("--------------------");
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyStars();
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyStars();
+	   printTwentyDashes();
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyStars();
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyStars();
+	   printTwentyDashes();
    }   
 }

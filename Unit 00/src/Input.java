@@ -1,10 +1,10 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Bryton L.
+//Date - 29 January 2021
+//Class - AP Computer Science A
+//Lab  - 0c 1
 
 import static java.lang.System.*;
 import java.util.Scanner;

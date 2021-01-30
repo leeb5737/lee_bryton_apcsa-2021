@@ -13,7 +13,8 @@ public class StarsAndStripes
    public StarsAndStripes()
    {
       out.println("StarsAndStripes");
-      printTwoBlankLines();
+      out.println("By: Bryton L.");
+      printOneBlankLines();
    }
 
    public void printTwentyStars()
@@ -26,9 +27,8 @@ public class StarsAndStripes
 	   out.println("--------------------");
    }
 
-   public void printTwoBlankLines()
+   public void printOneBlankLines()
    {
-	   out.println("\n");
 	   out.println("\n");
    }
    

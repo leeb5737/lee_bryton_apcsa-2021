@@ -1,8 +1,9 @@
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  - 
+//Name - Bryton L.
+//Date - 2/1/2021
+//Class - AP Computer Science A
+//Lab  - Line Lab
+
 
 public class LineRunner
 {

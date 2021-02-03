@@ -15,6 +15,7 @@ public class DistanceRunner
 	public static void main( String[] args )
 	{
 		Scanner keyboard = new Scanner(in);
+		String o;
 
 		out.print("Enter in x1 :: ");
 		int x1 = keyboard.nextInt();
@@ -30,7 +31,11 @@ public class DistanceRunner
 
 		Distance a = new Distance(x1, y1, x2, y2);
 		a.calcDistance();
+		out.print("Using print: ");
 		a.print();
+		out.println();
+		o = a.toString();
+		out.print("Using toString: " + o);
 			
 	}
 }

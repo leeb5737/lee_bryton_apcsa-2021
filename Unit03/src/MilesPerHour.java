@@ -37,18 +37,18 @@ public class MilesPerHour
 
 	public void calcMPH()
 	{
-		mph = (double)distance*(hours*60+minutes)/60;
+		mph = (double) distance * 60 / (hours*60+minutes);
 	}
 
 	public void print()
 	{
-		System.out.println(distance+" miles in "+hours+" hours and "+minutes+" minutes is "+mph+" miles per hour");
+		System.out.println(distance+" miles in "+hours+" hours and "+minutes+" minutes is "+String.format("%.3f",mph)+" miles per hour");
 	}
 	
 	//create a print or toString or both
 	
 	public String toString()
 	{
-		return "";
+		return distance+" miles in "+hours+" hours and "+minutes+" minutes is "+String.format("%.3f",mph)+" miles per hour";
 	}
 }

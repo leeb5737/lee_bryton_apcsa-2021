@@ -27,7 +27,11 @@ public class MPHRunner
 
 		MilesPerHour test = new MilesPerHour(dist, hrs, mins);
 		test.calcMPH();
+		out.print("Using print: ");
 		test.print();
+		String a = test.toString();
+		out.print("Using toString: " + a);
+		
 		
 		//add more test cases
 		

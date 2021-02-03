@@ -50,13 +50,13 @@ public class Distance
 	
 	public void print()
 	{
-		System.out.println("Distance = "+distance);
+		System.out.print("Distance = " + String.format("%.3f",distance));
 	}
 	
 	//complete print or the toString
 
 	public String toString()
 	{
-		return "Distance = " + distance;
+		return "Distance = " + String.format("%.3f",distance);
 	}
 }

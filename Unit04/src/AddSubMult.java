@@ -7,8 +7,18 @@ import java.util.Scanner;
 
 public class AddSubMult
 {
-	public static double check( double a, double b )
+	public static String check( double a, double b )
 	{
-		return 0;
+		double g;
+		if (a > b) {
+			g = a - b;
+		}
+		else if (b > a){
+			g = b - a;
+		}
+		else {
+			g = a * b;
+		}
+		return String.format("%.1f",g);
 	}
 }

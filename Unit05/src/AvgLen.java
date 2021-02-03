@@ -5,8 +5,13 @@
 
 public class AvgLen
 {
-   public static double go( String a, String b )
+	private double c,d;
+   public double go( String a, String b )
 	{
-		return 0;
+	   double e;
+	   c = a.length();
+	   d = b.length();
+	   e = (c+d)/2;
+	   return e;
 	}
 }

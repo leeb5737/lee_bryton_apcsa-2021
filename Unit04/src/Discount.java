@@ -15,8 +15,17 @@ public class Discount
 	
 	//getDiscountedBill() will return final amount of the bill
 	//			if the bill is >2000, the bill receives a 15% discount
-	public static double getDiscountedBill(double bill)
+	private static double a;
+	private static String b;
+	public static String getDiscountedBill(double bill)
 	{
-		return 0;
+		if (bill > 2000) {
+			a = bill * 0.85;
+		}
+		else {
+			a = bill;
+		}
+		b = String.format("%.2f", a);
+		return b;
 	}
 }

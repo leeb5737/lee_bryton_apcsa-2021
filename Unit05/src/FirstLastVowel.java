@@ -21,14 +21,15 @@ public class FirstLastVowel
 	}
 	   return c;
 }
-   public String check(String p, String l) {
+   public String check(String p, String end) {
 	   int go = 0;
-	   if (p == "a" || p == "e" || p == "i" || p == "o" || p == "u" || p == "A" || p == "E" || p == "I" || p == "O" || p == "U") {
+	   if (p.equals("a") || p.equals("e") || p.equals("i") || p.equals("o") || p.equals("u") || p.equals("A") || p.equals("E") || p.equals("I") || p.equals("O") || p.equals("U")) {
 		   go = 1;
 	   }
-	   if (l == "a" || l == "e" || l == "i" || l == "o" || l == "u" || l == "A" || l == "E" || l == "I" || l == "O" || l == "U") {
+	   else if (end.equals("a") || end.equals("e") || end.equals("i") || end.equals("o") || end.equals("u") || end.equals("A") || end.equals("E") || end.equals("I") || end.equals("O") || end.equals("U")) {
 		   go = 1;
 	   }
+	   else {}
 	   if (go == 1) {
 		   return "yes";
 	   }

@@ -16,12 +16,12 @@ public class NumberVerifyRunner
 		//add in input
 		char a = 'A';
 		int b;
+		Scanner keyboard = new Scanner(System.in);
 		while (a != 'E') {
-			Scanner keyboard = new Scanner(System.in);
 			out.print("Enter a whole number:: ");
 			b = keyboard.nextInt();
-			System.out.println("5 is odd :: " + NumberVerify.isOdd(5));
-			System.out.println("5 is even :: " + NumberVerify.isEven(5));
+			System.out.println(b + " is odd :: " + NumberVerify.isOdd(b));
+			System.out.println(b + " is even :: " + NumberVerify.isEven(b));
 			out.print("Do you want to continue (type E if you don't): ");
 			a = keyboard.next().charAt(0);
 		}

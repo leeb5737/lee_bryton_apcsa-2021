@@ -12,7 +12,25 @@ public class WordsCompareRunner
 {
    public static void main( String args[] )
    {
-		//add test cases
+		WordsCompare comp = new WordsCompare();
+		comp.setWords("abe", "ape");
+		out.print(comp.toString());
+		comp.setWords("giraffe", "gorilla");
+		out.print(comp.toString());
+		comp.setWords("one", "two");
+		out.print(comp.toString());
+		comp.setWords("fun", "funny");
+		out.print(comp.toString());
+		comp.setWords("123", "19");
+		out.print(comp.toString());
+		comp.setWords("193", "1910");
+		out.print(comp.toString());
+		comp.setWords("goofy", "godfather");
+		out.print(comp.toString());
+		comp.setWords("funnel", "fun");
+		out.print(comp.toString());
+		comp.setWords("fun", "fun");
+		out.print(comp.toString());
 
 	}
 }

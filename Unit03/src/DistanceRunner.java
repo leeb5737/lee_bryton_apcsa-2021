@@ -36,6 +36,5 @@ public class DistanceRunner
 		out.println();
 		o = a.toString();
 		out.print("Using toString: " + o);
-			
 	}
 }

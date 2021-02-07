@@ -30,8 +30,7 @@ public class Magpie3
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.length() == 0)
-		{
+		if (statement.trim().length()==0) {
 			response = "Say something, please.";
 		}
 		else if (findKeyword(statement, "mother") >= 0
@@ -163,11 +162,11 @@ public class Magpie3
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
-		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
-
+		
 		if (whichResponse == 0)
 		{
 			response = "Interesting, tell me more.";
@@ -184,8 +183,15 @@ public class Magpie3
 		{
 			response = "You don't say.";
 		}
+		else if (whichResponse == 4)
+		{
+			response = "I'm not sure what you said.";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "I agree.";
+		}
 
 		return response;
 	}
-
 }

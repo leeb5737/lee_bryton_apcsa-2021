@@ -26,13 +26,20 @@ public class StringExplorer
 		else
 		System.out.println("slow is not found");
 		String str = "Computer Science is the best, the greatest, and the most wonderful subject to study!";
-		String ph = str;
-		int strc=0;
-		while (ph.indexOf("the")!=-1) {
-			System.out.println("the is found at: " + (ph.indexOf("the")+strc));
-			strc = ph.indexOf("the")+1+strc;
-			ph= str.substring(strc);
+		String printer = "";
+		int strc=0, tally = 0;
+		while (str.indexOf("the",strc)!=-1) {
+			printer = printer+ str.indexOf("the",strc) + ", ";
+			System.out.println(printer);
+			strc = str.indexOf("the")+1+strc;
+			tally++;
 		}
+		System.out.println("the is found " + tally + " times at: " + printer.substring(0,printer.length()-2));
 		
 	}
 }
+/*		while (ph.indexOf("the")!=-1) {
+System.out.println("the is found at: " + (ph.indexOf("the")+strc));
+strc = ph.indexOf("the")+1+strc;
+ph= str.substring(strc);
+}*/

@@ -24,10 +24,8 @@ public class TriangleOne
 	{
 		word = s;
 		newstring = "";
-		int a = 0;
-		while (a < word.length()) {
+		for (int a = 0; a< s.length();a++) {
 			newstring = newstring + "\n" + word.substring(0, word.length()-a);
-			a++;
 		}
 		newstring = newstring + "\n";
 	}

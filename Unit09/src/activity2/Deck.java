@@ -1,3 +1,4 @@
+package activity2;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -11,7 +12,8 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	//private List<Card> cards;
+	private Card[] card;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,6 +33,15 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		size = ranks.length * suits.length;
+		card = new Card[ranks.length * suits.length];
+		int value = 0;
+		for (int i = 0; i < ranks.length; i++) {
+			for (int j = 0; j< suits.length;i++) {
+				card[value] = new Card(ranks[i], suits[j], values[i]);
+				value++;
+			}
+		}
 	}
 
 
@@ -40,6 +51,8 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (size == 0) return true;
+		else return false;
 	}
 
 	/**
@@ -48,6 +61,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
 	}
 
 	/**
@@ -65,6 +79,11 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (size == 0) return null;
+		else {
+			size--;
+			return card[size];
+		}
 	}
 
 	/**
@@ -74,6 +93,32 @@ public class Deck {
 	@Override
 	public String toString() {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
+		for (int k = size - 1; k >= 0; k--) {
+			rtn = rtn + card[k];
+			if (k != 0) {
+				rtn = rtn + ", ";
+			}
+			if ((size - k) % 2 == 0) {
+				// Insert carriage returns so entire deck is visible on console.
+				rtn = rtn + "\n";
+			}
+		}
+		rtn = rtn + "\nDealt cards: \n";
+		for (int k = card.length - 1; k >= size; k--) {
+			rtn = rtn + card[k];
+			if (k != size) {
+				rtn = rtn + ", ";
+			}
+			if ((k - card.length) % 2 == 0) {
+				// Insert carriage returns so entire deck is visible on console.
+				rtn = rtn + "\n";
+			}
+		}
+
+		rtn = rtn + "\n";
+		return rtn;
+		
+/*		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
 			rtn = rtn + cards.get(k);
@@ -99,6 +144,6 @@ public class Deck {
 		}
 
 		rtn = rtn + "\n";
-		return rtn;
+		return rtn;*/
 	}
 }

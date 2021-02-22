@@ -1,4 +1,4 @@
-package activity2;
+package activity4;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	//private ArrayList<Card> cards;
-	private Card[] card;
+	private ArrayList<Card> cards;
+	//private Card[] card;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -34,7 +34,7 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		// Arrays
-		size = ranks.length * suits.length;
+		/*size = ranks.length * suits.length;
 		card = new Card[ranks.length * suits.length];
 		int value = 0;
 		for (int i = 0; i < ranks.length; i++) {
@@ -42,17 +42,18 @@ public class Deck {
 				card[value] = new Card(ranks[i], suits[j], values[i]);
 				value++;
 			}
-		}
+		}*/
 		
 		
 		
-		/*size = ranks.length * suits.length;
 		cards = new ArrayList<Card>();
 		for (int i = 0; i < ranks.length; i++){
 			for (String s: suits){
 				cards.add(new Card(ranks[i], s, values[i]));
 			}
-		}*/
+		}
+		size = cards.size();
+		shuffle();
 		 
 	}
 
@@ -82,6 +83,28 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Card transfer;
+		for (int i = 0; i < cards.size() ; i++) {
+			int rando = (int) (Math.random() * (cards.size()));
+			transfer = cards.get(rando);
+			cards.set(rando, cards.get(i));
+			cards.set(i, transfer);
+		}
+		size = cards.size();
+		
+		//Array
+		/*Card transfer;
+		int rando;
+		for (int i = card.length-1; i>=0; i--) {
+			rando = (int) (Math.random() * (i + 1));
+			transfer = card[rando];
+			card[rando] = card[i];
+			card[i]= transfer;
+		}
+		size = card.length;
+		*/
+		
+		
 	}
 
 	/**
@@ -92,18 +115,18 @@ public class Deck {
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		//Arrays
-		if (size == 0) return null;
-		else {
-			size--;
-			return card[size];
-		}
-		
-		
 		/*if (size == 0) return null;
 		else {
 			size--;
-			return cards.get(size);
+			return card[size];
 		}*/
+		
+		
+		if (size == 0) return null;
+		else {
+			size--;
+			return cards.get(size);
+		}
 	}
 
 	/**
@@ -113,7 +136,7 @@ public class Deck {
 	@Override
 	public String toString() {
 		//Arrays
-		String rtn = "size = " + size + "\nUndealt cards: \n";
+		/*String rtn = "size = " + size + "\nUndealt cards: \n";
 		for (int k = size - 1; k >= 0; k--) {
 			rtn = rtn + card[k];
 			if (k != 0) {
@@ -137,11 +160,13 @@ public class Deck {
 		}
 
 		rtn = rtn + "\n";
-		return rtn;
+		return rtn;*/
 		
 		
 		
-		/*String rtn = "Size = " + size + "\nUndealt cards: \n";
+		
+		
+		String rtn = "Size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
 			rtn = rtn + cards.get(k);
@@ -167,6 +192,6 @@ public class Deck {
 		}
 
 		rtn = rtn + "\n";
-		return rtn;*/
+		return rtn;
 	}
 }

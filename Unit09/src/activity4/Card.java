@@ -1,4 +1,4 @@
-package activity1;
+package activity4;
 /**
  * Card.java
  *
@@ -78,12 +78,6 @@ public class Card {
 		if (suit.equals(otherCard.suit()) && rank.equals(otherCard.rank()) 
 				&& pointValue == otherCard.pointValue()) return true;
 		return false;
-		
-		/*or: 
-		if (otherCard.suit().equals(this.suit) && otherCard.rank().equals(this.rank) 
-			&& otherCard.pointValue() == this.pointValue) return true;
-		return false;
-		 */
 	}
 
 	/**

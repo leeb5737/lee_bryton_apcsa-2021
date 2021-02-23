@@ -1,6 +1,5 @@
 package activity4;
 
-import activity2.Deck;
 
 /**
  * This is a class that tests the Deck class.

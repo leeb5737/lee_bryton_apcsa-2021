@@ -15,7 +15,7 @@ public class Shuffler {
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 20;
+	private static final int VALUE_COUNT = 52;
 
 	/**
 	 * Tests shuffling methods.
@@ -76,6 +76,7 @@ public class Shuffler {
 			shuffled[k] = values[j];
 			k+=2;
 			}
+		
 		for (int l = 0; l < values.length; l++) {
 			values[l]= shuffled[l];
 		}
@@ -97,7 +98,7 @@ public class Shuffler {
 		int shuffler;
 		int transfer;
 		for (int j = values.length-1; j >= 0; j--) {
-			shuffler = (int) (Math.random() * (j+1));
+			shuffler = (int) (Math.random() * (values.length-1));
 			transfer = values[shuffler];
 			values[shuffler]=values[j];
 			values[j]= transfer;

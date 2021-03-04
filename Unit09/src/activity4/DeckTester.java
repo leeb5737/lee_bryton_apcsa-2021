@@ -19,5 +19,9 @@ public class DeckTester {
 		System.out.println(test);
 		test.shuffle();
 		System.out.println(test);
+		for (int i = 0; i <52; i++) {
+			test.deal();
+		}
+		System.out.println(test);
 	}
 }

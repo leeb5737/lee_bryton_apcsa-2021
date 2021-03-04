@@ -82,10 +82,10 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		//Array List
 		Card transfer;
+		//Array List
 		for (int i = 0; i < cards.size() ; i++) {
-			int rando = (int) (Math.random() * (cards.size() - 1));
+			int rando = (int) (Math.random() * (cards.size()));
 			transfer = cards.get(rando);
 			cards.set(rando, cards.get(i));
 			cards.set(i, transfer);
@@ -93,10 +93,10 @@ public class Deck {
 		size = cards.size();
 		
 		//Array
-		/*Card transfer;
+		/*
 		int rando;
 		for (int i = card.length-1; i>=0; i--) {
-			rando = (int) (Math.random() * (card.length - 1));
+			rando = (int) (Math.random() * (card.length));
 			transfer = card[rando];
 			card[rando] = card[i];
 			card[i]= transfer;
@@ -114,17 +114,12 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		//Arrays
-		/*if (size == 0) return null;
-		else {
-			size--;
-			return card[size];
-		}*/
-		
-		//Array List
 		if (size == 0) return null;
 		else {
 			size--;
+			//Arrays
+			//return card[size];
+			//ArrayList
 			return cards.get(size);
 		}
 	}

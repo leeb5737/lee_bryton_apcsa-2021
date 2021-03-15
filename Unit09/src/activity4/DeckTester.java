@@ -23,5 +23,6 @@ public class DeckTester {
 			test.deal();
 		}
 		System.out.println(test);
+		System.out.println("The deck is empty: "+ test.isEmpty());
 	}
 }

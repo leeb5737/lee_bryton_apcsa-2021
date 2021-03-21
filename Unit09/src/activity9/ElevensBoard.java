@@ -110,18 +110,23 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		for (int i = 0; i < selectedCards.size();i++) {
+		boolean fk = false;
+		boolean fj = false;
+		boolean fq = false;
+		for (Integer i : selectedCards) {
+			int j = i.intValue();
+			if(cardAt(j).rank().equals("jack")) fj = true;
+			else if(cardAt(j).rank().equals("queen")) fq = true;
+			else if(cardAt(j).rank().equals("king")) fk = true;
+		}
+		return fj && fq && fk;
+		
+		/*for (int i = 0; i < selectedCards.size();i++) {
 			for (int j = i+1; j < selectedCards.size(); j++) {
 				for (int k = j+1; k < selectedCards.size(); k++) {
-					if ((cardAt(selectedCards.get(i)).rank().equals("king")
-						|| cardAt(selectedCards.get(i)).rank().equals("jack")
-						|| cardAt(selectedCards.get(i)).rank().equals("queen")) &&
-					(cardAt(selectedCards.get(j)).rank().equals("king")
-						|| cardAt(selectedCards.get(j)).rank().equals("jack")
-						|| cardAt(selectedCards.get(j)).rank().equals("queen"))&&
-					(cardAt(selectedCards.get(k)).rank().equals("king")
-						|| cardAt(selectedCards.get(k)).rank().equals("jack")
-						|| cardAt(selectedCards.get(k)).rank().equals("queen"))
+					if (JQKchecker(cardAt(selectedCards.get(i)).rank()) &&
+						JQKchecker(cardAt(selectedCards.get(j)).rank()) &&
+						JQKchecker(cardAt(selectedCards.get(k)).rank())
 						
 							) {
 						return true;
@@ -129,6 +134,10 @@ public class ElevensBoard extends Board {
 				}
 			}
 		}
-		return false;
+		return false;*/
 	}
+/*	private boolean JQKchecker (String a) {
+		if (a.equals("king") || a.equals("queen") || a.equals("jack")) return true;
+		return false;
+	}*/
 }

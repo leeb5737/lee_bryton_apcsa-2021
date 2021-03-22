@@ -1,3 +1,4 @@
+
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name -
@@ -6,16 +7,13 @@ import java.util.*;
 
 public class TotalRow
 {
-	int outer = 0,inner = 0, l = 0;
+	int outer = 0,inner = 0, l = 10;
 	private List<Integer> a;
+	
+	
     public List<Integer> getRowTotals( int[][] m )
     {
-    	/*l = 0;
-    	outer = 0;
-    	inner = 0;
-    	a = new  ArrayList<Integer>(m.length);
-    	return counter(m);*/
-    	/*a = new ArrayList<Integer>(m.length);
+    	a = new ArrayList<Integer>(m.length);
     	int l = 0;
     	for (int[] i : m) {
     		a.add(0);
@@ -25,6 +23,6 @@ public class TotalRow
     		}
     		l++;
     	}
-    	return a;*/
+    	return a;
     }
 }

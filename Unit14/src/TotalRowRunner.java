@@ -11,6 +11,8 @@ public class TotalRowRunner
 		int[][] c = {{1,2},{5,5},{5,5},{4,5,6,7},{123124,12312}};
 		TotalRow g = new TotalRow();
 		System.out.println(g.getRowTotals(a));
+		System.out.println(g.getRowTotals(b));
+		System.out.println(g.getRowTotals(c));
 	}
 }
 

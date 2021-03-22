@@ -10,12 +10,34 @@ public class Grid
 	public Grid(int rows, int cols, String[] vals)
 	{
 		grid = new String[cols][rows];
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				int rand = (int)(Math.random() * vals.length);
+				String val = vals[rand];
+				grid[i][j] = val;
+			}
+		}
 	}
 
 	//find out which of the vals occurs the most
 	public String findMax(String[] vals)
 	{
-		return "nothing yet";
+		int max = -1;
+		int count = 0;
+		String most = " ";
+		for (String s : vals) {
+			for (String[] row : grid) {
+				for (String w: row) {
+					if (w.equals(s)) count ++;
+				}
+				if (max < count ){
+					max = count;
+					most = s;
+				}
+			}
+			count = 0;
+		}
+		return most;
 	}
 
 	//returns a count of how many times val occurs in the matrix
@@ -29,7 +51,7 @@ public class Grid
 	{
 		String output="";
 		for (int i = 0; i < grid.length; i++) {
-			output+= Arrays.toString(grid[i]) + " ";
+			output+= Arrays.toString(grid[i]) + "\n";
 		}
 		return output;
 	}

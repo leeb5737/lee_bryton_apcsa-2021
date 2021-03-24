@@ -12,6 +12,7 @@ public class WordSearchRunner
     	  WordSearch ms = new WordSearch(8,"APPLEXYPXLHJKEEDEGGLLXXCGFPDGOGNMYNTAHUUPUQDGBTSBTHIGHMSILKXLTHIS");
     	  String[] words = "APPLE AXE APEX CAT HEX EGG HAT COMPUTER GUM THIS TUG THIGH".split(" ");
     	  System.out.println( ms );
+    	 
     	  for( String s : words )
     	  {
     	  	  if( ms.isFound( s) )

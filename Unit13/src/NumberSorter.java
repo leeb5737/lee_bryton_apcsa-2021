@@ -12,15 +12,30 @@ public class NumberSorter
 {
 	//instance variables and other methods not shown
 
-	private static int getNumDigits(int number)
+	private int getNumDigits(int number)
 	{
-		int count = 0;
+		int count = number %10;
 		return count;
 	}
 
-	public static int[] getSortedDigitArray(int number)
+	public int[] getSortedDigitArray(int number)
 	{
-		int[] sorted = null;
+		String a = "" +number;
+		int b = number;
+		int[] sorted = new int[a.length()];
+		for (int i = 0; i < a.length(); i++) {
+			sorted[i] = getNumDigits(b);
+			b = b / 10;
+		}
+		int temp;
+		for (int i = 0; i < a.length()-1; i++) {
+			if (sorted[i] > sorted[i+1]) {
+				temp = sorted[i];
+				sorted[i]= sorted[i+1];
+				sorted[i+1] = temp;
+				i = -1;
+			}
+		}
 		return sorted;
 	}
 }

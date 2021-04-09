@@ -14,28 +14,30 @@ public class NumberSorter
 
 	private int getNumDigits(int number)
 	{
-		int count = number %10;
+		int count = 0;
+		while (number > 0) {
+			number = number / 10;
+			count++;
+		}
 		return count;
 	}
 
 	public int[] getSortedDigitArray(int number)
 	{
-		String a = "" +number;
-		int b = number;
-		int[] sorted = new int[a.length()];
-		for (int i = 0; i < a.length(); i++) {
-			sorted[i] = getNumDigits(b);
-			b = b / 10;
+		int len = getNumDigits(number);
+		int[] sort = new int[len];
+		for (int i = 0; number > 0; i++) {
+			sort[i] = number % 10;
+			number = number / 10;
 		}
-		int temp;
-		for (int i = 0; i < a.length()-1; i++) {
-			if (sorted[i] > sorted[i+1]) {
-				temp = sorted[i];
-				sorted[i]= sorted[i+1];
-				sorted[i+1] = temp;
+		for (int i = 0; i < len - 1; i++) {
+			if (sort[i] > sort[i + 1]) {
+				int a = sort[i];
+				sort[i] = sort[i + 1];
+				sort[i + 1] = a;
 				i = -1;
 			}
 		}
-		return sorted;
+		return sort;
 	}
 }

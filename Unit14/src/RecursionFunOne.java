@@ -8,7 +8,7 @@ public class RecursionFunOne
 {
 	public int countOddDigits(int num)
 	{
-		if (num % 10 == 0) return num;
+		if (num % 10 == 0) return 0;
 		int a = num % 10;
 		if (a % 2 == 0) return 1 + countOddDigits(num/10);
 		return countOddDigits(num/10);

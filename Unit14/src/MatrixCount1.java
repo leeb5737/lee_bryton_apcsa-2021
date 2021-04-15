@@ -19,14 +19,13 @@ public class MatrixCount1
     	if (outer == m.length) { 
     		outer = 0; 
     		inner = 0;
-    		return val- val;
+    		return 0;
     	}
     	if (inner == m[outer].length) {
     		inner = 0;
     		outer++;
     	}
     	else if (m[outer][inner++] == val) return 1 + count(val);
-    	
     	return count(val);
     	/*int count = 0;
     	for (int[] i : m) {

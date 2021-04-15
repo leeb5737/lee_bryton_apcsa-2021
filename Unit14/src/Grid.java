@@ -27,8 +27,12 @@ public class Grid
 		String temp = "";
 		for (String j : uniqueletters) {
 			if (countVals(j) > max) {
-				max = countVals(j);
-				temp = j;
+				for (String k : vals) {
+					if (k.equals(j)) {
+						max = countVals(j);
+						temp = j;
+					}
+				}
 			}
 		}
 		return temp +" occurs the most";

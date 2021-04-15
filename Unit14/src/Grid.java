@@ -5,11 +5,12 @@ import java.util.Arrays;
 public class Grid
 {
    private String[][] grid;
-
+   private String[] uniqueletters;
    //load vals into the rows x cols grid randomly
 	public Grid(int rows, int cols, String[] vals)
 	{
 		grid = new String[cols][rows];
+		uniqueletters = vals;
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
 				int rand = (int)(Math.random() * vals.length);
@@ -23,27 +24,26 @@ public class Grid
 	public String findMax(String[] vals)
 	{
 		int max = -1;
-		int count = 0;
-		String most = " ";
-		for (String s : vals) {
-			for (String[] row : grid) {
-				for (String w: row) {
-					if (w.equals(s)) count ++;
-				}
-				if (max < count ){
-					max = count;
-					most = s;
-				}
+		String temp = "";
+		for (String j : uniqueletters) {
+			if (countVals(j) > max) {
+				max = countVals(j);
+				temp = j;
 			}
-			count = 0;
 		}
-		return most;
+		return temp +" occurs the most";
 	}
 
 	//returns a count of how many times val occurs in the matrix
 	private int countVals( String val )
 	{
-		return 0;
+		int count = 0;
+		for (String[] i : grid) {
+			for (String j : i) {
+				if (j.equals(val)) count++;
+			}
+		}
+		return count;
 	}
 
 	//display the grid
@@ -52,6 +52,9 @@ public class Grid
 		String output="";
 		for (int i = 0; i < grid.length; i++) {
 			output+= Arrays.toString(grid[i]) + "\n";
+		}
+		for (String j : uniqueletters) {
+			output+= j + " count is: " + countVals(j) + "\n";
 		}
 		return output;
 	}

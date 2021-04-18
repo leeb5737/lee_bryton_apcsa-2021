@@ -19,16 +19,16 @@ public class Ball extends Block
 	public Ball(int x, int y)
 	{
 		super(x,y);
-		setSpeed(3,1);
+		setSpeed(1,1);
 	}
 	public Ball(int x, int y, int width) {
 		super(x,y,width);
-		setSpeed(3,1);
+		setSpeed(1,1);
 	}
 	
 	public Ball(int x, int y, int width, int height) {
 		super(x,y,width,height);
-		setSpeed(3,1);
+		setSpeed(1,1);
 	}
 	
 	public Ball(int x, int y, int width, int height, int xSped, int ySped) {
@@ -38,7 +38,7 @@ public class Ball extends Block
 	
 	public Ball(int x, int y, int width, int height, Color color) {
 		super(x,y,width,height,color);
-		setSpeed(3,1);
+		setSpeed(1,1);
 	}	
 	public Ball(int x, int y, int width, int height, Color color, int xSped, int ySped) {
 		super(x,y,width,height,color);
@@ -66,7 +66,7 @@ public class Ball extends Block
 
       setX(getX()+xSpeed);
 		//setY
-      setX(getY()+ySpeed);
+      setY(getY()+ySpeed);
 		//draw the ball at its new location
       draw(window);
    }
@@ -74,7 +74,9 @@ public class Ball extends Block
 	public boolean equals(Object obj)
 	{
 		Ball a = (Ball) obj;
-		if (super.equals(obj) && xSpeed == a.getXSpeed() && ySpeed == a.getYSpeed())return true;
+		if (equals(obj) && xSpeed == a.getXSpeed() && ySpeed == a.getYSpeed()) {
+			return true;
+		}
 		return false;
 	}   
 
@@ -88,7 +90,6 @@ public class Ball extends Block
 	
    //toString() method
 	public String toString() {
-		 return getX() + "," + getY() + "," +  getWidth() + ","  + getHeight() + "," + getColor().toString() + "," 
-				 + xSpeed + "," + ySpeed;
+		return getX() + "," + getY() + "," + getWidth() + "," + getHeight() + "," + getColor().toString() + "," + xSpeed + "," + ySpeed;
 	}
 }

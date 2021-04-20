@@ -15,19 +15,24 @@ import java.awt.event.ActionListener;
 
 public class Pong extends Canvas implements KeyListener, Runnable
 {
-	private Ball ball;
+	//private Ball ball;
+	//private SpeedUpBall ball;
+	private BlinkyBall ball;
 	private Paddle leftPaddle;
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
-
+	private int p1score = 0;
+	private int p2score = 0;
 
 	public Pong()
 	{
 		//set up all variables related to the game
-		ball = new Ball(200,200,10,10,1,1);
-		leftPaddle = new Paddle();
-		rightPaddle = new Paddle();
+		//ball = new Ball(200,200,10,10,Color.red,3,1);
+		//ball = new SpeedUpBall(200,200,10,10,Color.red,1,1);
+		ball = new BlinkyBall(200,200,10,10,Color.red,3,1);
+		leftPaddle = new Paddle(20,300,10,60,Color.blue,5);
+		rightPaddle = new Paddle(750,300,10,60,Color.blue,5);
 		keys = new boolean[4];
 
     
@@ -37,7 +42,13 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		new Thread(this).start();
 		addKeyListener(this);		//starts the key thread to log key strokes
 	}
-	
+	public void round() {
+		//ball = new Ball(200,200,10,10,Color.red,3,1);
+		//ball = new SpeedUpBall(200,200,10,10,Color.red,1,1);
+		ball = new BlinkyBall(200,200,10,10,Color.red,3,1);
+		leftPaddle = new Paddle(20,300,10,60,Color.blue,5);
+		rightPaddle = new Paddle(750,300,10,60,Color.blue,5);
+	}
    public void update(Graphics window){
 	   paint(window);
    }
@@ -46,7 +57,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
    {
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
-
+		 back = (BufferedImage)(createImage(getWidth(),getHeight()));
 		//take a snap shop of the current screen and same it as an image
 		//that is the exact same width and height as the current screen
 		if(back==null)
@@ -56,62 +67,72 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
-
+		graphToBack.drawString("P1 Score" + p1score, 10, 10);
+		graphToBack.drawString("P2 Score" + p2score, 700, 10);
 		ball.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
 
 
 		//see if ball hits left wall or right wall
-		if(!(ball.getX()>=10 && ball.getX()<=780))
+		if(!(ball.getX()>=10 && ball.getX()<= super.getWidth()-10))
 		{
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+			if(ball.didCollideLeft()) {
+				ball.setXSpeed(0);
+				ball.setYSpeed(0);
+				System.out.print("Left Lost");
+				p2score++;
+				round();
+				
+			}
+			if(ball.didCollideRight()) {
+				ball.setXSpeed(0);
+				ball.setYSpeed(0);
+				System.out.print("Right Lost");
+				p1score++;
+				round();
+			}
 		}
 
 		
 		//see if the ball hits the top or bottom wall 
-		if(!(ball.getY()>=10 && ball.getY()<= 550)) {
+		if(ball.didCollideBottom() || ball.didCollideTop()) {
 			ball.setYSpeed(-ball.getYSpeed());
 		}
 
 
 
 		//see if the ball hits the left paddle
-		if(ball.getX() == leftPaddle.getX() + leftPaddle.getWidth() && ((leftPaddle.getY() <= ball.getY()) && (ball.getY() <= leftPaddle.getY() + leftPaddle.getHeight()))){
-			//ball.increaseSpeed(ball.getXSpeed());
-
+		if(ball.didCollidePaddle(leftPaddle) || ball.didCollidePaddle(rightPaddle)) {
 			ball.setXSpeed(-ball.getXSpeed());
-			
 		}
 		
-		
-		//see if the ball hits the right paddle
-		if ((ball.getX() == rightPaddle.getX() - rightPaddle.getWidth()) && ((rightPaddle.getY() <= ball.getY()) && (ball.getY() <= rightPaddle.getY() + rightPaddle.getHeight())))
-        {
-			//ball.increaseSpeed(ball.getXSpeed());
-
-        	ball.setXSpeed(-ball.getXSpeed());
-
-        }
+		/*if (ball.SpeedUp() ) {
+			if (ball.getXSpeed()>0) ball.setXSpeed(ball.getXSpeed()+1);
+			else ball.setXSpeed(ball.getXSpeed()-1);
+		}
+		else if ( ball.didCollidePaddle(leftPaddle) || ball.didCollidePaddle(rightPaddle)){
+			if (ball.getXSpeed()>0) ball.setXSpeed(ball.getXSpeed()+1);
+			else ball.setXSpeed(ball.getXSpeed()-1);
+		}*/
 		
 		//see if the paddles need to be moved
 		if(keys[0] == true)
 		{
-			leftPaddle.moveDownAndDraw(window);
+			leftPaddle.moveUpAndDraw(window);
 		}
 		if(keys[1] == true)
 		{
-			leftPaddle.moveUpAndDraw(window);
+			leftPaddle.moveDownAndDraw(window);
 
 		}
 		if(keys[2] == true)
 		{
-			rightPaddle.moveDownAndDraw(window);
+			rightPaddle.moveUpAndDraw(window);
 		}
 		if(keys[3] == true)
 		{
-			rightPaddle.moveUpAndDraw(window);
+			rightPaddle.moveDownAndDraw(window);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);

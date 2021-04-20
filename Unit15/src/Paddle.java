@@ -9,62 +9,64 @@ public class Paddle extends Block
 {
    //instance variables
    private int speed;
-   
-   //Constructors 
+
    public Paddle()
    {
-	  super(10,10);
-	   setSpeed(5);
+	 super(10,10);
+     speed = 5;
    }
-   public Paddle(int x, int y) {
+   //add the other Paddle constructors
+   public Paddle(int x,int y) {
+	  super(x,y);
+	  speed = 5;
+   }
+   public Paddle(int x, int y,int nSpeed) {
 	   super(x,y);
-	   setSpeed(5);
+	   speed = nSpeed;
    }
-   public Paddle(int x, int y, int inSpeed) {
-	   super(x,y);
-	   setSpeed(inSpeed);
+   public Paddle(int x, int y,int width,int height) {
+	   super(x,y,width,height);
+	   speed = 5;
    }
-   public Paddle(int x, int y, int wide, int height) {
-	   super(x,y,wide,height);
-	   setSpeed(5);
+   public Paddle(int x, int y,int width,int height,Color color) {
+	   super(x,y,width,height,color);
+	   speed = 5;
    }
-   public Paddle(int x, int y, int wide, int height, int inSpeed) {
-	   super(x,y,wide,height);
-	   setSpeed(inSpeed);
+   public Paddle(int x, int y,int width,int height,int nSpeed) {
+	   super(x,y,width,height);
+	   speed = nSpeed;
    }
-   public Paddle(int x, int y, int wide, int height, Color c) {
-	   super(x,y,wide,height,c);
-	   setSpeed(5);
+   public Paddle(int x, int y,int width,int height,Color color,int nSpeed) {
+	   super(x,y,width,height,color);
+	   speed = nSpeed;
    }
-   public Paddle(int x, int y, int wide, int height, Color c, int inSpeed) {
-	   super(x,y,wide,height,c);
-	   setSpeed(inSpeed);
+
+   public void setSpeed(int newS) {
+	   speed = newS;
    }
-   //Setter
-   public void setSpeed(int inSpeed) {
-	   speed = inSpeed;
-   }
-   
-   //New Methods
+	   
+  
    public void moveUpAndDraw(Graphics window)
    {
-	   setY(getY()+getSpeed());
+	   setY(getY() - speed);
+	   draw(window);
 
    }
 
    public void moveDownAndDraw(Graphics window)
    {
-	   setY(getY()-getSpeed());
+	   setY(getY() + speed);
+	   draw(window);
 
    }
-
-   //Variable Return Methods
+   //add get methods
    public int getSpeed() {
 	   return speed;
    }
    
    //add a toString() method
    public String toString() {
-	   return getX() + "," + getY() + "," +  getWidth() + ","  + getHeight() + "," + getColor().toString() + "," + getSpeed();
+	return getX() + "," + getY() + "," +  getWidth() + ","  + getHeight() + "," + getColor().toString() + "," + speed;
+	   
    }
 }

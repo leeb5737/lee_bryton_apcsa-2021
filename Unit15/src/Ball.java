@@ -5,7 +5,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ball extends Block
+public class Ball extends Block implements Collidable
 {
 	private int xSpeed;
 	private int ySpeed;
@@ -74,7 +74,7 @@ public class Ball extends Block
 	public boolean equals(Object obj)
 	{
 		Ball a = (Ball) obj;
-		if (equals(obj) && xSpeed == a.getXSpeed() && ySpeed == a.getYSpeed()) {
+		if (super.equals(obj) && xSpeed == a.getXSpeed() && ySpeed == a.getYSpeed()) {
 			return true;
 		}
 		return false;
@@ -86,6 +86,27 @@ public class Ball extends Block
 	}
 	public int getYSpeed() {
 		return ySpeed;
+	}
+	public boolean didCollideLeft() {
+		if (super.getX() <= 10) return true;
+		return false;
+	}
+	public boolean didCollideRight() {
+		if (super.getX() >= 790) return true;
+		return false;
+	}
+	public boolean didCollideTop() {
+		if (super.getY() <= 50) return true;
+		return false;
+	}
+	public boolean didCollideBottom() {
+		if (super.getY() >= 550) return true;
+		return false;
+	}
+	public boolean didCollidePaddle(Paddle a) {
+		if ((super.getX() <= a.getX() + a.getWidth() && super.getX() >= a.getX())
+				&& ((super.getY() <= a.getY() + a.getHeight() && super.getY() >= a.getY()))) return true;
+			return false;
 	}
 	
    //toString() method

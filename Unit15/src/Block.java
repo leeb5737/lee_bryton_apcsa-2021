@@ -15,16 +15,16 @@ public class Block implements Locatable
 	
 	//Constructors
 	public Block(){
-		this(100,100,10,10,Color.blue);
+		setall(100,100,10,10,Color.blue);
 	}
 	public Block(int x, int y) {
-		this(x,y,10,10,Color.blue);
+		setall(x,y,10,10,Color.blue);
 	}
 	public Block(int x, int y, int wide) {
-		this(x,y,wide,10,Color.blue);
+		setall(x,y,wide,10,Color.blue);
 	}
 	public Block(int x, int y, int wide, int hei) {
-		this(x,y,wide,hei,Color.blue);
+		setall(x,y,wide,hei,Color.blue);
 	}
 	public Block(int x, int y, int wide, int hei, Color c) {
 		setall(x,y,wide,hei,c);

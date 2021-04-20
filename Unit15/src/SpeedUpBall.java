@@ -4,61 +4,117 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Random;
 
-class SpeedUpBall extends Ball
+public class SpeedUpBall extends Block implements Collidable
 {
-
-   //instance variables
 	private int xSpeed;
 	private int ySpeed;
-   public SpeedUpBall()
+
+	//Constructors
+	public SpeedUpBall()
+	{
+		super(200,200);
+		setSpeed(3,1);
+	}
+	public SpeedUpBall(int x, int y)
+	{
+		super(x,y);
+		setSpeed(1,1);
+	}
+	public SpeedUpBall(int x, int y, int width) {
+		super(x,y,width);
+		setSpeed(1,1);
+	}
+	
+	public SpeedUpBall(int x, int y, int width, int height) {
+		super(x,y,width,height);
+		setSpeed(1,1);
+	}
+	
+	public SpeedUpBall(int x, int y, int width, int height, int xSped, int ySped) {
+		super(x,y,width,height);
+		setSpeed(xSped,ySped);
+	}
+	
+	public SpeedUpBall(int x, int y, int width, int height, Color color) {
+		super(x,y,width,height,color);
+		setSpeed(1,1);
+	}	
+	public SpeedUpBall(int x, int y, int width, int height, Color color, int xSped, int ySped) {
+		super(x,y,width,height,color);
+		setSpeed(xSped,ySped);
+	}
+
+	
+  
+   //Setters
+	public void setSpeed(int xSped, int ySped) {
+		setXSpeed(xSped);
+		setYSpeed(ySped);
+	}
+    public void setXSpeed( int xSped ) {
+    	xSpeed = xSped;
+    }
+    public void setYSpeed( int ySped ) {
+    	ySpeed = ySped;
+    }
+
+   public void moveAndDraw(Graphics window)
    {
-	   super(100,100);
-	   setXSpeed(1);
-	   setYSpeed(1);
+   	//draw a white ball at old ball location
+	   draw(window, Color.white);
+
+      setX(getX()+xSpeed);
+		//setY
+      setY(getY()+ySpeed);
+		//draw the ball at its new location
+      draw(window);
    }
+   
+	public boolean equals(Object obj)
+	{
+		SpeedUpBall a = (SpeedUpBall) obj;
+		if (super.equals(obj) && xSpeed == a.getXSpeed() && ySpeed == a.getYSpeed()) {
+			return true;
+		}
+		return false;
+	}   
 
-   public SpeedUpBall(int x, int y)
-   {
-	   super(x,y);
-	   setXSpeed(1);
-	   setYSpeed(1);
-   }
-
-
-   public SpeedUpBall(int x, int y, int wid, int ht)
-   {
-	   super(x,y,wid,ht);
-	   setXSpeed(1);
-	   setYSpeed(1);
-
-   }
-
-   public SpeedUpBall(int x, int y, int wid, int ht, int xSpd, int ySpd)
-   {
-	   super(x,y,wid,ht);
-	   setXSpeed(xSpd);
-	   setYSpeed(ySpd);
-   }
-
-
-   public SpeedUpBall(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd)
-   {
-	   super(x,y,wid,ht,col);
-	   setXSpeed(xSpd);
-	   setYSpeed(ySpd);
-
-   }
-
-   public void setXSpeed( int xSpd )
-   {
-	   xSpeed = xSpd;
-   }
-
-   public void setYSpeed( int ySpd )
-   {
-	   ySpeed = ySpd;
-   }
+   //Variable Return Method
+	public int getXSpeed() {
+		return xSpeed;
+	}
+	public int getYSpeed() {
+		return ySpeed;
+	}
+	public boolean didCollideLeft() {
+		if (super.getX() <= 10) return true;
+		return false;
+	}
+	public boolean didCollideRight() {
+		if (super.getX() >= 790) return true;
+		return false;
+	}
+	public boolean didCollideTop() {
+		if (super.getY() <= 50) return true;
+		return false;
+	}
+	public boolean didCollideBottom() {
+		if (super.getY() >= 550) return true;
+		return false;
+	}
+	public boolean didCollidePaddle(Paddle a) {
+		if ((super.getX() <= a.getX() + a.getWidth() && super.getX() >= a.getX())
+				&& ((super.getY() <= a.getY() + a.getHeight() && super.getY() >= a.getY()))) return true;
+			return false;
+	}
+	public boolean SpeedUp() {
+		if (didCollideBottom() || didCollideTop()) return true;
+		return false;
+	}
+	
+   //toString() method
+	public String toString() {
+		return getX() + "," + getY() + "," + getWidth() + "," + getHeight() + "," + getColor().toString() + "," + xSpeed + "," + ySpeed;
+	}
 }
-

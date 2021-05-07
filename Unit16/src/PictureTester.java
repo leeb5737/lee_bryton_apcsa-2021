@@ -12,27 +12,110 @@ public class PictureTester
   public static void testZeroBlue()
   {
     Picture beach = new Picture("beach.jpg");
-    beach.explore();
+    //beach.explore();
     beach.zeroBlue();
     beach.explore();
   }
-  
+  public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    //beach.zeroGreen();
+    beach.zeroRed();
+    beach.explore();
+  }
+  public static void testKeepOnlyRed()
+  {
+    Picture beach = new Picture("beach.jpg");
+    //beach.explore();
+    beach.zeroGreen();
+    beach.zeroBlue();
+    beach.explore();
+  }
+  public static void testKeepOnlyGreen()
+  {
+    Picture beach = new Picture("beach.jpg");
+    //beach.explore();
+    beach.zeroRed();
+    beach.zeroBlue();
+    beach.explore();
+  }
+  public static void testNegate()
+  {
+    Picture beach = new Picture("Flight.jpg");
+    //beach.explore();
+    beach.negate();
+    beach.explore();
+  }
+  public static void testGrayscale()
+  {
+    Picture beach = new Picture("beach.jpg");
+    //beach.explore();
+    beach.grayscale();
+    beach.explore();
+  }
+  public static void testFixUnderwater()
+  {
+    Picture beach = new Picture("water.jpg");
+    //beach.explore();
+    beach.modcol();
+    beach.explore();
+  }
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
-    caterpillar.explore();
+    Picture caterpillar = new Picture("Berserk.jpg");
+    //caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }  
+  public static void testmirrorVerticalRightToLeft()
+  {
+	    Picture caterpillar = new Picture("Berserk.jpg");
+	    //caterpillar.explore();
+	    caterpillar.mirrorVerticalRL();
+	    caterpillar.explore();
   }
-  
+  public static void   testmirrorHorizontal()
+  {
+	    Picture caterpillar = new Picture("Berserk.jpg");
+	    //caterpillar.explore();
+	    caterpillar.mirrorHorizontal();
+	    caterpillar.explore();
+  }
+  public static void testmirrorHorizontalBotToTop()
+  {
+	    Picture caterpillar = new Picture("Berserk.jpg");
+	    //caterpillar.explore();
+	    caterpillar.mirrorHorizontalBT();
+	    caterpillar.explore();
+  }
+  public static void testMirrorDiagonal()
+  {
+	    Picture caterpillar = new Picture("Berserk.jpg");
+	    //caterpillar.explore();
+	    caterpillar.mirrorDiag();
+	    caterpillar.explore();
+}
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
     Picture temple = new Picture("temple.jpg");
-    temple.explore();
+    //temple.explore();
     temple.mirrorTemple();
     temple.explore();
+  }
+  public static void  testMirrorArms() {
+	Picture temple = new Picture("snowman.jpg");
+	//temple.explore();
+	temple.mirrorArm();
+	temple.explore();  
+  }
+  public static void testMirrorGull() {
+		Picture temple = new Picture("seagull.jpg");
+		//temple.explore();
+		temple.mirrorGull();
+		temple.explore(); 
   }
   
   /** Method to test the collage method */
@@ -40,7 +123,9 @@ public class PictureTester
   {
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
-    canvas.explore();
+    Picture canvas2 = new Picture("640x480.jpg");
+    canvas2.createCollage2();
+    canvas2.explore();
   }
   
   /** Method to test edgeDetection */
@@ -58,7 +143,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -66,13 +151,16 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
+	//testmirrorVerticalRightToLeft();
+	//testmirrorHorizontal();
+	//testmirrorHorizontalBotToTop();
+	//testMirrorDiagonal();
     //testMirrorTemple();
     //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
+    //testMirrorGull();;
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();

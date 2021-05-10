@@ -20,7 +20,7 @@ public class PictureTester
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
-    //beach.zeroGreen();
+    beach.zeroGreen();
     beach.zeroRed();
     beach.explore();
   }
@@ -42,7 +42,7 @@ public class PictureTester
   }
   public static void testNegate()
   {
-    Picture beach = new Picture("Flight.jpg");
+    Picture beach = new Picture("wall.jpg");
     //beach.explore();
     beach.negate();
     beach.explore();
@@ -113,7 +113,7 @@ public class PictureTester
   }
   public static void testMirrorGull() {
 		Picture temple = new Picture("seagull.jpg");
-		//temple.explore();
+		temple.explore();
 		temple.mirrorGull();
 		temple.explore(); 
   }
@@ -123,6 +123,7 @@ public class PictureTester
   {
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
+    canvas.explore();
     Picture canvas2 = new Picture("640x480.jpg");
     canvas2.createCollage2();
     canvas2.explore();

@@ -50,7 +50,7 @@ public class PictureTester
   public static void testGrayscale()
   {
     Picture beach = new Picture("beach.jpg");
-    //beach.explore();
+    beach.explore();
     beach.grayscale();
     beach.explore();
   }
@@ -133,8 +133,17 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
+    swan.explore();
     swan.edgeDetection(10);
     swan.explore();
+  }
+  public static void testChromakey()
+  {
+    Picture mark = new Picture("blue-mark.jpg");
+    Picture moon = new Picture("moon-surface.jpg");
+    mark.explore();
+    mark.chromakey(moon);
+    mark.explore();
   }
   
   /** Main method for testing.  Every class can have a main
@@ -161,9 +170,9 @@ public class PictureTester
     //testMirrorGull();;
     //testCollage();
     //testCopy();
-    testEdgeDetection();
+    //testEdgeDetection();
     //testEdgeDetection2();
-    //testChromakey();
+    testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();

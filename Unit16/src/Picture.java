@@ -246,6 +246,25 @@ public class Picture extends SimplePicture
 	      }
 	    } 
 	  }
+  public void chromakey(Picture newp) 
+  {
+	    Pixel[][] toPixels = this.getPixels2D();
+	    Pixel[][] fromPixels = newp.getPixels2D();
+	    Pixel fromPixel = null;
+	    Pixel toPixel = null;
+	    for (int r = 0; r < this.getHeight();r++) {
+	    	{
+	    		for (int c = 0; c < this.getWidth();c++) {
+	    			toPixel = toPixels[r][c];
+	    			if (toPixel.getBlue() > toPixel.getRed()) {
+	    				fromPixel = fromPixels[r][c];
+	    				toPixel.setColor(fromPixel.getColor());
+	    			}
+	    		}
+	    	}
+	    }
+  }
+  
   public void mirrorDiag()
   {
 	    Pixel[][] pixels = this.getPixels2D();

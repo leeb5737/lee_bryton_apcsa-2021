@@ -21,7 +21,9 @@ public class Bullets
 
 	public void add(Ammo al)
 	{
-		ammo.add(al);
+		if (ammo.size() < 100) {
+			ammo.add(al);
+		}
 	}
 
 	//post - draw each Ammo
@@ -42,7 +44,7 @@ public class Bullets
 	public void cleanEmUp()
 	{
 		for (int i = 0; i < ammo.size();i++) {
-			if (ammo.get(i).getX() < ammo.get(i).getSpeed()) {
+			if (ammo.get(i).getY() < ammo.get(i).getSpeed()) {
 				ammo.remove(i);
 				i--;
 			}

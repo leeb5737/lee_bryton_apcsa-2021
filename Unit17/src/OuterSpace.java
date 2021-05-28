@@ -99,12 +99,28 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 		if (horde.hit(ship) || gameover == true) {
-			gameover = true;
-			graphToBack.drawString("You Lose", 350, 300);
+			//gameover = true;
+			//graphToBack.drawString("You Lose", 350, 300);
+			System.out.println("You Lose");
+	   		try {
+				Thread.currentThread().sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.exit(0);
 		}
 		
 		if (!horde.anyleft() && !gameover) {
-			graphToBack.drawString("You Win", 350, 300);
+			//graphToBack.drawString("You Win", 350, 300);
+			System.out.println("You Win");
+	   		try {
+				Thread.currentThread().sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.exit(0);
 		}
 
 		twoDGraph.drawImage(back, null, 0, 0);
@@ -171,14 +187,16 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
    public void run()
    {
-   		while(true)
-   		{
-            try {
-            	Thread.currentThread().sleep(5);
-            	repaint();
-            } catch (Exception e) {
-            }
-         }
+	   	try
+	   	{
+	   		while(true)
+	   		{
+	   		   Thread.currentThread().sleep(5);
+	            repaint();
+	         }
+	      }catch(Exception e)
+	      {
+	      }
 
   	}
 }

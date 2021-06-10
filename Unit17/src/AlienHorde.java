@@ -21,13 +21,14 @@ public class AlienHorde
 	{
 		aliens = new ArrayList<Alien>();
 		for (int i = 0; i < size; i++) {
-			aliens.add(new Alien(loc, loch, 10, 10, 1));
+			aliens.add(new Alien(loc, loch, 20, 20, 1));
 			if (loc > 800) {
 				dist = -50;
-				loch += 15;
+				loch += 40;
 			}
 			else if (loc < 0) {
 				dist = 50;
+				loch += 40;
 			}
 			loc += dist;
 		}

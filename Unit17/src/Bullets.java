@@ -21,7 +21,7 @@ public class Bullets
 
 	public void add(Ammo al)
 	{
-		if (ammo.size() < 100) {
+		if (ammo.size() < 25) {
 			ammo.add(al);
 		}
 	}
